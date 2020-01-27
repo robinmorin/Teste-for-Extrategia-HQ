@@ -1,5 +1,5 @@
 export class Costumer{
-    costumerid: BigInteger;
+    costumerid: number;
     cpf: string;
     firstname: string;
     lastname: string;

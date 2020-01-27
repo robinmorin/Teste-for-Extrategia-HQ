@@ -11,7 +11,7 @@ import { Costumer } from 'src/app/model/Costumer';
 })
 export class AddCostumerComponent implements OnInit {
 
-  @Output() today:Date;
+today:Date = new Date();
 
   @Input() costumer:Costumer=new Costumer();
 
@@ -20,7 +20,9 @@ export class AddCostumerComponent implements OnInit {
   ngOnInit() {
   }
 
-  addCostumer(costumer:Costumer){
+  addCostumer(){
+    this.costumer.costumerid = 0;
+    this.costumer.create_at = this.today;
     this._service.saveCostumer(this.costumer).subscribe(data=>{
       alert("Costumer is added successfully.");
       this._router.navigate(["list-all-costumers"]);
