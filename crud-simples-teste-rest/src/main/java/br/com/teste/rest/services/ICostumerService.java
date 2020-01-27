@@ -9,4 +9,5 @@ public interface ICostumerService {
     boolean updateCostumer(Costumer costumer) throws Exception;
     boolean deleteCostumer(Long costumerId) throws Exception;
     List<Costumer> costumerList();
+    Costumer getCostumer(Long costumerId) throws Exception;
 }

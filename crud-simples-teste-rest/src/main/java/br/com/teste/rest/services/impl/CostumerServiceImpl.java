@@ -71,6 +71,17 @@ public class CostumerServiceImpl implements ICostumerService {
         return costumerList;
     }
 
+    public Costumer getCostumer(Long costumerId) throws Exception {
+        if(costumerId == null) throw new Exception("Deve colocar o Id do Cliente");
+        Optional<Costumer> existsCostumer = Optional.empty();
+        existsCostumer = costumerDao.findById(costumerId);
+        if(existsCostumer.isPresent()) {
+            return existsCostumer.get();
+        } else {
+            throw new Exception("Cliente não existe com esse Id.");
+        }
+    }
+
     @Autowired
     private CostumerServiceImpl(ICostumerDao costumerDao){
         this.costumerDao = costumerDao;

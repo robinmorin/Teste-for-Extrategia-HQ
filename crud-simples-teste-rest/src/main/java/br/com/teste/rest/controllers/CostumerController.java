@@ -25,7 +25,8 @@ public class CostumerController {
     @ApiOperation(
             tags = {"Costumers"},
             value = "Add Costumer in DataBase",
-            notes = "This endpoint needs parameter IN Costumer")
+            notes = "This endpoint needs parameter IN Costumer",
+            position = 1)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Costumer foi criado satisfatoriamente", response = StandardResponse.class ),
             @ApiResponse(code = 400, message = "Bad Request", response = StandardError.class),
@@ -44,7 +45,8 @@ public class CostumerController {
     @ApiOperation(
             tags = {"Costumers"},
             value = "Update Costumer in DataBase",
-            notes = "This endpoint needs parameter IN Costumer")
+            notes = "This endpoint needs parameter IN Costumer",
+            position = 2)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Costumer foi atualizado satisfatoriamente", response = StandardResponse.class),
             @ApiResponse(code = 400, message = "Bad Request", response = StandardError.class),
@@ -64,7 +66,8 @@ public class CostumerController {
     @ApiOperation(
             tags = {"Costumers"},
             value = "Delete Costumer in DataBase",
-            notes = "This endpoint needs parameter IN Costumer")
+            notes = "This endpoint needs parameter IN Costumer",
+            position = 3)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Costumer foi apagado satisfatoriamente", response = StandardResponse.class),
             @ApiResponse(code = 400, message = "Bad Request", response = StandardError.class),
@@ -82,7 +85,8 @@ public class CostumerController {
     @ApiOperation(
             tags = {"Costumers"},
             value = "List of Costumer of DataBase",
-            notes = "This endpoint not need parameter")
+            notes = "This endpoint not need parameter",
+            position = 4)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Listar ", response = StandardResponse.class),
             @ApiResponse(code = 400, message = "Bad Request", response = StandardError.class),
@@ -93,6 +97,24 @@ public class CostumerController {
     @GetMapping(value = "/costumers/list", produces = {"APPLICATION/JSON"} )
     public ResponseEntity<List<Costumer>> listCostumers(){
         return ResponseEntity.ok().body(costumerService.costumerList());
+    }
+
+    @SneakyThrows
+    @ApiOperation(
+            tags = {"Costumers"},
+            value = "Get one Costumer of DataBase",
+            notes = "This endpoint needs parameter IN Costumer",
+            position = 5)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success ", response = StandardResponse.class),
+            @ApiResponse(code = 400, message = "Bad Request", response = StandardError.class),
+            @ApiResponse(code = 401, message = "Unauthorized", response = StandardError.class),
+            @ApiResponse(code = 403, message = "Forbidden", response = StandardError.class),
+            @ApiResponse(code = 404, message = "Not Found", response = StandardError.class),
+            @ApiResponse(code = 500, message = "Error no servidor", response = StandardError.class) })
+    @GetMapping(value = "/costumers/{id}/costumer", produces = {"APPLICATION/JSON"} )
+    public ResponseEntity<Costumer> getCostumer(@PathVariable Long id){
+        return ResponseEntity.ok().body(costumerService.getCostumer(id));
     }
 
     @Autowired
