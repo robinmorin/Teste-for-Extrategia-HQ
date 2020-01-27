@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Costumers <p class="text-center"><button class="btn btn-outline-primary" (click)="getAddCostumer()">Add Costumer</button></p></h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>CPF</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Telephone</th>
+                        <th>Create at</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let costumer of costumers" class="text-center">
+                        <td>{{ costumer.costumerid }}</td>
+                        <td>{{ costumer.firstname }}&nbsp;{{ costumer.lastname }}</td>
+                        <td>{{ costumer.cpf }}</td>
+                        <td>{{ costumer.email }}</td>
+                        <td>{{ costumer.endereco }}</td>
+                        <td>{{ costumer.telefone }}</td>
+                        <td>{{ costumer.create_at }}</td>
+                        <td>{{ costumer.status }}</td>
+                        <td><button class="btn btn-outline-info" (click)="callConsumer(costumer.costumerid)">Edit</button>
+                            <button class="btn btn-outline-danger">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

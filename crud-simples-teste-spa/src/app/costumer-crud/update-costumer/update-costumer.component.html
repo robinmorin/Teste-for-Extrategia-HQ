@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Update Costumer</h1>
+        </div>
+        <div class="card-body">
+            <form action="">
+                <div class="form-group">
+                    <input [(ngModel)]="costumer.costumerid" name="costumerid" type="hidden"  />
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="costumer.firstname" name="firstname" type="text" style="margin-bottom: 10px;" class="form-control" placeholder="First Name"/>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="costumer.lastname" name="lastname" type="text" style="margin-bottom: 10px;" class="form-control" placeholder="Last Name"/>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="costumer.cpf" name="cpf" type="text" style="margin-bottom: 10px;" class="form-control" placeholder="CPF"/>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="costumer.email" name="email" type="email" style="margin-bottom: 10px;" class="form-control" placeholder="Email"/>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="costumer.endereco" name="endereco" type="text" style="margin-bottom: 10px;" class="form-control" placeholder="Address"/>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="costumer.telefone" name="telefone" type="tel" style="margin-bottom: 10px;" class="form-control" placeholder="Telephone"/>
+                </div>
+                <div class="form-group">
+                    <input [(ngModel)]="costumer.status" name="status" type="number" style="margin-bottom: 10px;" class="form-control" placeholder="Status"/>
+                    <input [(ngModel)]="costumer.create_at" name="create_at" type="hidden" value="{{ today }}" > 
+                </div>
+                <div class="d-flex align-items-end flex-column bd-highlight mb-1">
+                    <div class="mt-auto p-2 bd-highlight">
+                        <button (click)="addCostumer()" class="btn btn-outline-success">Save</button>
+                        <button (click)="backList()" class="btn btn-outline-danger">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
