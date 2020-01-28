@@ -75,7 +75,7 @@ public class CostumerController {
             @ApiResponse(code = 403, message = "Forbidden", response = StandardError.class),
             @ApiResponse(code = 404, message = "Not Found", response = StandardError.class),
             @ApiResponse(code = 500, message = "Error no servidor", response = StandardError.class) })
-    @GetMapping(value = "/costumers/delete/{costumerId}", produces = {"APPLICATION/JSON"})
+    @DeleteMapping(value = "/costumers/delete/{costumerId}", produces = {"APPLICATION/JSON"})
     public ResponseEntity<Object> deleteCostumer(@PathVariable Long costumerId) {
             boolean deleted = costumerService.deleteCostumer(costumerId);
             StandardResponse result = new StandardResponse(String.format("%s apagado o Cliente com ID: %d", (deleted ? "Foi" : "Não foi"), costumerId));

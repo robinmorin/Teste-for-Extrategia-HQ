@@ -28,4 +28,8 @@ export class CostumerServiceService{
     return this._http.get<Costumer>(this.urlApi+ "/"+idx+"/costumer");
   }
 
+  deleteCostumer(costumer:Costumer){
+    return this._http.delete<Costumer>(this.urlApi+ "/delete/"+costumer.costumerid.toString());
+  }
+
 }

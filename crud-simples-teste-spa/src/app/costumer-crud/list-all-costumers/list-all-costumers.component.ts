@@ -25,8 +25,18 @@ export class ListAllCostumersComponent implements OnInit {
     this._router.navigate(["add-costumer"]);
   }
 
-  callConsumer(idx:Number){
+  callCostumer(costumer:Costumer):void{
+    localStorage.setItem("id",costumer.costumerid.toString());
     this._router.navigate(["update-costumer"]);
+  }
+
+  deleteCostumer(costumer:Costumer):void{
+    if(confirm("Are you sure to delete costumer "+ costumer.firstname+" "+costumer.lastname)){
+     this._service.deleteCostumer(costumer).subscribe(data=>{
+          this.costumers = this.costumers.filter(c=>c!==costumer);
+          alert("Costumer is deleted!!!")
+      });
+    } 
   }
 
 }

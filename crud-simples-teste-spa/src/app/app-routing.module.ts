@@ -8,8 +8,7 @@ import { UpdateCostumerComponent } from './costumer-crud/update-costumer/update-
 const routes: Routes = [
   { path: 'list-all-costumers', component: ListAllCostumersComponent },
   { path: 'add-costumer', component: AddCostumerComponent },
-  { path: 'update-costumer', component: UpdateCostumerComponent },
-
+  { path: 'update-costumer', component: UpdateCostumerComponent }
 ];
 
 @NgModule({

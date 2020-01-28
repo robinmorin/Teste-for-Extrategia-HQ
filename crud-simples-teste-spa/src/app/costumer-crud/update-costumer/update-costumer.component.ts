@@ -10,18 +10,30 @@ import { Costumer } from 'src/app/model/Costumer';
 })
 export class UpdateCostumerComponent implements OnInit {
 
+  costumer:Costumer=new Costumer();
+
   constructor(private _service:CostumerServiceService, private _router:Router) { }
 
   ngOnInit() {
-    this.findConsumer(2);
+      this.updateCostumer();
   }
 
-  findConsumer(idx:Number){
-      return this._service.getCostumer(idx);
+  updateCostumer(){
+    let id=localStorage.getItem("id");
+    this._service.getCostumer(+id).subscribe(data=>{
+      this.costumer = data;
+    });
   }
 
-  updateCostumer(costumer:Costumer){
-    
+  saveCostumer(){
+    this._service.updateCostumer(this.costumer).subscribe(data=>{
+      alert("Costumer is updated successfully.");
+      this._router.navigate(["list-all-costumers"]);
+    });
   }
 
+  backList(){
+    this._router.navigate(["list-all-costumers"]);
+  }
+  
 }

@@ -28,11 +28,29 @@
                         <td>{{ costumer.telefone }}</td>
                         <td>{{ costumer.create_at }}</td>
                         <td>{{ costumer.status }}</td>
-                        <td><button class="btn btn-outline-info" (click)="callConsumer(costumer.costumerid)">Edit</button>
-                            <button class="btn btn-outline-danger">Delete</button></td>
+                        <td><button class="btn btn-outline-info" (click)="callCostumer(costumer)">Edit</button>
+                            <button class="btn btn-outline-danger" (click)="deleteCostumer(costumer)">Delete</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
+<div style="display:none;">
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Confirmation</h5>
+        </div>
+        <div class="modal-body">
+          Are you sure to delete Costumer {{ costumer.firstname }} {{ costumer.lastname }} 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
